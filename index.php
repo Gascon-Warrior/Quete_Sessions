@@ -1,4 +1,18 @@
-<?php require 'inc/data/products.php'; ?>
+<?php
+session_start();
+require 'inc/data/products.php'; 
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET)){
+    
+    //Je récupère l'id du produit
+    $product = $_GET['add_to_cart'];
+    //J'enregistre le nom du produit dans la variable $added
+    $added = $catalog[$product]['name'];    
+    // J'enregistre le nom du produit en session
+    $_SESSION['name_product'][] = $added;
+    header('Location: index.php');
+    
+}
+?>
 <?php require 'inc/head.php'; ?>
 <section class="cookies container-fluid">
     <div class="row">

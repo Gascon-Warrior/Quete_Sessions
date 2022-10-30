@@ -38,6 +38,12 @@
                     <li><a href="#">Nuts</a></li>
                     <li><a href="#">Gluten full</a></li>
                     <li>
+                        <a href="/logout.php" class="btn btn-light navbar-btn">
+                            <span class=" text-black" aria-hidden="true"></span>
+                           Logout
+                        </a>
+                    </li>
+                    <li>
                         <a href="/cart.php" class="btn btn-warning navbar-btn">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                             Cart
@@ -48,6 +54,9 @@
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
-        <strong>Hello Wilder !</strong>
+        <strong><?php if(isset($_SESSION['pseudo'])){echo "Hello " . $_SESSION['pseudo'] . " !"; }else{
+            echo"Hello Wilder!";
+        }; ?>
+        </strong>
     </div>
 </header>
